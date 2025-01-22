@@ -15,26 +15,26 @@ struct TabBar: View {
     }
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             VStack(spacing: .zero) {
                 TabView(selection: $viewModel.selection) {
-                    HomeView()
+                    Text("Home")
                         .tag(TabBarSelectionView.home.rawValue)
                         .environmentObject(viewModel)
                     
-                    CostStatisticsView()
-                        .tag(TabBarSelectionView.statistics.rawValue)
+                    Text("Calendar")
+                        .tag(TabBarSelectionView.calendar.rawValue)
                         .environmentObject(viewModel)
                     
-                    IncomeDistributionView()
-                        .tag(TabBarSelectionView.finance.rawValue)
-                        .environmentObject(viewModel)
-                    
-                    ProfileView()
+                    Text("Profile")
                         .tag(TabBarSelectionView.profile.rawValue)
+                        .environmentObject(viewModel)
                     
-                    FAQView()
+                    Text("FAQ")
                         .tag(TabBarSelectionView.faq.rawValue)
+                    
+                    Text("Settings")
+                        .tag(TabBarSelectionView.settings.rawValue)
                         .environmentObject(viewModel)
                 }
                 

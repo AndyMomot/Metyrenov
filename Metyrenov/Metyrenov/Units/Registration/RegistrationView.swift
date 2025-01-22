@@ -13,7 +13,7 @@ struct RegistrationView: View {
     
     var body: some View {
         ZStack {
-            LinearGradientBackground()
+            Color.graphite
                 .ignoresSafeArea()
             
             VStack(spacing: 50) {
@@ -38,8 +38,7 @@ struct RegistrationView: View {
                                 }
                             }
                         }
-                        .opacity(viewModel.nickname.isEmpty ? 0.5 : 1)
-                        .disabled(viewModel.nickname.isEmpty)
+                        .disabled(viewModel.nickname.count < 3)
                     }
                 }
                 .scrollIndicators(.never)

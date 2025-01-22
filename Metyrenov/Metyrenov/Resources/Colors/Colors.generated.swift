@@ -23,6 +23,7 @@ internal typealias AssetColorTypeAlias = ColorAsset.Color
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Colors {
   internal static let ashGray = ColorAsset(name: "ashGray")
+  internal static let azure = ColorAsset(name: "azure")
   internal static let deepIndigo = ColorAsset(name: "deepIndigo")
   internal static let deepPlum = ColorAsset(name: "deepPlum")
   internal static let graphite = ColorAsset(name: "graphite")
@@ -30,6 +31,7 @@ internal enum Colors {
   internal static let mist = ColorAsset(name: "mist")
   internal static let orangeCustom = ColorAsset(name: "orangeCustom")
   internal static let redCustom = ColorAsset(name: "redCustom")
+  internal static let skywave = ColorAsset(name: "skywave")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

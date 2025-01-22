@@ -11,11 +11,11 @@ struct TabBarCustomView: View {
     @Binding var selectedItem: Int
     
     private let items: [TabBar.Item] = [
-        .init(imageName: Asset.tab1.name),
-        .init(imageName: Asset.tab2.name),
-        .init(imageName: Asset.tab3.name),
-        .init(imageName: Asset.tab4.name),
-        .init(imageName: Asset.tab5.name)
+        .init(imageName: Asset.homeTab.name),
+        .init(imageName: Asset.calendarTab.name),
+        .init(imageName: Asset.profileTab.name),
+        .init(imageName: Asset.faqTab.name),
+        .init(imageName: Asset.settingsTab.name)
     ]
     
     private var arrange: [Int] {
@@ -28,7 +28,10 @@ struct TabBarCustomView: View {
     
     var body: some View {
         ZStack {
-            LinearGradientBackground()
+            Capsule()
+                .fill(.graphite)
+                .shadowModifier()
+                .ignoresSafeArea(edges: .horizontal)
             
             HStack(spacing: 0) {
                 Spacer()
@@ -43,24 +46,25 @@ struct TabBarCustomView: View {
                             }
                         }
                     } label: {
-                        ZStack {
-                            if isSelected {
-                                Circle()
-                                    .fill(.redCustom)
-                            }
+                        VStack(spacing: 8) {
+                            LinearGradient(
+                                colors: [.azure, .skywave],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                            .frame(width: 10, height: 10)
+                            .clipShape(Circle())
+                            .hidden(!isSelected)
                             
                             Image(item.imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 31)
+                                .renderingMode(.template)
+                                .foregroundStyle(
+                                     LinearGradient(
+                                        colors: isSelected ? [.azure, .skywave] : [.white],
+                                    startPoint: .leading,
+                                    endPoint: .trailing)
+                                )
                         }
-                        .padding(10)
-                        .clipShape(Circle())
-                        .offset(y: isSelected ? -20 : 0)
-                        .shadow(color: .ashGray.opacity(isSelected ? 0.25 : 0), radius: 4,
-                                x: -4, y: -4)
-                        .shadow(color: .black.opacity(isSelected ? 0.25 : 0), radius: 4,
-                                x: 4, y: 4)
                     }
                     
                     Spacer()

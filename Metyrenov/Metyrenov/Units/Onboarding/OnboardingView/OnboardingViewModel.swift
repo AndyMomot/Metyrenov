@@ -33,11 +33,11 @@ extension OnboardingView {
         var text: String {
             switch self {
             case .first:
-                return "Witamy w Netflenaunt, Twoim partnerze w zarządzaniu finansami! Zacznijmy od rozdzielenia wydatków osobistych i firmowych."
+                return "Aplikacja remontowa pozwala zaplanować prace, określić materiały i obliczyć budżet. Pomaga to skutecznie kontrolować każdy etap procesu renowacji."
             case .second:
-                return "Netflenaunt pomoże Ci kategoryzować transakcje i zyskać jasny obraz wydatków i dochodów. Zarządzanie finansami jeszcze nigdy nie było prostsze!"
+                return "Pozwala śledzić postępy zadań, rejestrować koszty i porównywać je z zaplanowanym budżetem. Zalecenia dotyczące wyboru materiałów i optymalizacji kosztów pomagają osiągnąć lepsze wyniki."
             case .third:
-                return "Przejmij kontrolę nad finansami dzięki inteligentnym narzędziom i raportom Netflenaunt. Zarządzanie budżetem może być łatwe i wygodne!"
+                return "Używaj narzędzi i materiałów bezpiecznie i zgodnie z instrukcjami. Intuicyjny interfejs ułatwia organizację napraw i tworzenie stylowych wnętrz."
             }
         }
         
@@ -61,6 +61,10 @@ extension OnboardingView {
         
         var lastIndex: Int {
             OnboardingItem.allCases.last?.rawValue ?? .zero
+        }
+        
+        var progress: Double {
+            Double(rawValue + 1) / Double(lastIndex + 1)
         }
     }
 }

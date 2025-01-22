@@ -34,7 +34,7 @@ struct CustomTextField: View {
                                           isDynamic: isDynamic)
                     }
                 }
-                .background(LinearGradientBackground())
+                .background(.graphite)
                 .cornerRadius(8, corners: .allCorners)
                 .shadowModifier()
                 
@@ -47,7 +47,7 @@ struct CustomTextField: View {
                 .foregroundStyle(.mist)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 28)
-                .background(LinearGradientBackground())
+                .background(.graphite)
                 .cornerRadius(8, corners: .allCorners)
                 .shadowModifier()
             }
@@ -70,8 +70,7 @@ private extension CustomTextField {
 
 #Preview {
     ZStack {
-        LinearGradientBackground()
-            .ignoresSafeArea()
+        Color.graphite
         
         ScrollView {
             VStack(spacing: 20) {

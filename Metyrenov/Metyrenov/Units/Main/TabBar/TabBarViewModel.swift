@@ -24,10 +24,10 @@ extension TabBar {
 extension TabBar {
     enum TabBarSelectionView: Int {
         case home = 0
-        case statistics
-        case finance
+        case calendar
         case profile
         case faq
+        case settings
     }
     
     struct Item: Identifiable {

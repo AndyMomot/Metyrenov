@@ -8,6 +8,7 @@ import SwiftUI
 
 struct NextButton: View {
     var title: String
+    var colors: [Color] = [.azure, .skywave]
     var action: () -> Void
     
     var body: some View {
@@ -15,8 +16,12 @@ struct NextButton: View {
             action()
         } label: {
             ZStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(.redCustom)
+                LinearGradient(
+                    colors: colors,
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+                .clipShape( RoundedRectangle(cornerRadius: 10))
                 
                 Text(title)
                     .foregroundStyle(.white)
@@ -27,7 +32,9 @@ struct NextButton: View {
                 
             }
             .frame(height: 54)
+            .shadowModifier()
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

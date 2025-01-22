@@ -38,11 +38,11 @@ internal enum Asset {
   internal static let onboard3 = ImageAsset(name: "onboard3")
   internal static let logo = ImageAsset(name: "logo")
   internal static let preloaderBg = ImageAsset(name: "preloaderBg")
-  internal static let tab1 = ImageAsset(name: "tab1")
-  internal static let tab2 = ImageAsset(name: "tab2")
-  internal static let tab3 = ImageAsset(name: "tab3")
-  internal static let tab4 = ImageAsset(name: "tab4")
-  internal static let tab5 = ImageAsset(name: "tab5")
+  internal static let calendarTab = ImageAsset(name: "calendarTab")
+  internal static let faqTab = ImageAsset(name: "faqTab")
+  internal static let homeTab = ImageAsset(name: "homeTab")
+  internal static let profileTab = ImageAsset(name: "profileTab")
+  internal static let settingsTab = ImageAsset(name: "settingsTab")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
