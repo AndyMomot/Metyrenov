@@ -8,40 +8,27 @@
 import SwiftUI
 
 struct NavigationBarView: View {
-    var action: (ViewAction) -> Void
     
     @State private var user: User?
     @State private var image: Image?
     
     var body: some View {
         HStack(spacing: 14) {
-            Button {
-                action(.onProfile)
-            } label: {
-                if let image {
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 40, height: 40)
-                        .clipShape(RoundedRectangle(cornerRadius: 4))
-                } else {
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundStyle(.deepIndigo)
-                        .padding(6)
-                        .background(
-                            LinearGradient(
-                                colors: [.redCustom, .orangeCustom],
-                                startPoint: .topTrailing,
-                                endPoint: .bottomLeading)
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 4))
-                        .padding(.vertical, 4)
-                }
+            if let image {
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 52, height: 52)
+                    .clipShape(Circle())
+            } else {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundStyle(.deepIndigo)
+                    .padding(8)
+                    .background(LinearGradientBackground())
+                    .clipShape(Circle())
             }
-            
-            Spacer()
             
             Group {
                 Text("Cześć, ")
@@ -53,28 +40,18 @@ struct NavigationBarView: View {
             }
             .foregroundStyle(.white)
             
-            Button {
-                action(.onOffers)
-            } label: {
-                Asset.offers.swiftUIImage
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24, height: 24)
-            }
+            Spacer()
         }
-        .frame(height: 44)
+        .padding()
+        .background(Color.graphite)
+        .clipShape(Capsule())
+        .shadowModifier()
+        .frame(height: 74)
         .onAppear {
             Task {
                 await fetchUser()
             }
         }
-    }
-}
-
-extension NavigationBarView {
-    enum ViewAction {
-        case onProfile
-        case onOffers
     }
 }
 
@@ -101,9 +78,8 @@ private extension NavigationBarView {
 
 #Preview {
     ZStack {
-        LinearGradientBackground()
-            .ignoresSafeArea()
-        NavigationBarView() {_ in}
+        Color.graphite
+        NavigationBarView()
             .padding()
     }
 }

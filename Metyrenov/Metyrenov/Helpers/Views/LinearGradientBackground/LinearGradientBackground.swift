@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct LinearGradientBackground: View {
+    var colors: [Color] = [.deepIndigo, .azure]
+    
     var body: some View {
         LinearGradient(
-            colors: [.deepIndigo, .deepPlum],
+            colors: colors,
             startPoint: .topLeading,
             endPoint: .bottomTrailing)
     }

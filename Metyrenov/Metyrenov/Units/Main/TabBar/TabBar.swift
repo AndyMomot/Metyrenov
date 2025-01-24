@@ -26,9 +26,11 @@ struct TabBar: View {
                         .tag(TabBarSelectionView.calendar.rawValue)
                         .environmentObject(viewModel)
                     
-                    Text("Profile")
-                        .tag(TabBarSelectionView.profile.rawValue)
-                        .environmentObject(viewModel)
+                    if viewModel.showTeamTab {
+                        Text("Team")
+                            .tag(TabBarSelectionView.team.rawValue)
+                            .environmentObject(viewModel)
+                    }
                     
                     Text("FAQ")
                         .tag(TabBarSelectionView.faq.rawValue)
@@ -38,8 +40,9 @@ struct TabBar: View {
                         .environmentObject(viewModel)
                 }
                 
-                if viewModel.isShowTabBar {
-                    TabBarCustomView(selectedItem: $viewModel.selection)
+                if viewModel.showTabBar {
+                    TabBarCustomView(items: viewModel.items,
+                                     selectedItem: $viewModel.selection)
                         .frame(height: UIScreen.main.bounds.height * 0.12)
                 }
             }

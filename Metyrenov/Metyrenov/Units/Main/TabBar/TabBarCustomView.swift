@@ -8,15 +8,9 @@
 import SwiftUI
 
 struct TabBarCustomView: View {
-    @Binding var selectedItem: Int
     
-    private let items: [TabBar.Item] = [
-        .init(imageName: Asset.homeTab.name),
-        .init(imageName: Asset.calendarTab.name),
-        .init(imageName: Asset.profileTab.name),
-        .init(imageName: Asset.faqTab.name),
-        .init(imageName: Asset.settingsTab.name)
-    ]
+    let items: [TabBar.Item]
+    @Binding var selectedItem: Int
     
     private var arrange: [Int] {
         Array(0..<items.count)
@@ -76,7 +70,13 @@ struct TabBarCustomView: View {
 
 struct TabBarCustomView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarCustomView(selectedItem: .constant(0))
+        TabBarCustomView(items: [
+            .init(imageName: Asset.homeTab.name),
+            .init(imageName: Asset.calendarTab.name),
+            .init(imageName: Asset.profileTab.name),
+            .init(imageName: Asset.faqTab.name),
+            .init(imageName: Asset.settingsTab.name)
+        ], selectedItem: .constant(0))
             .previewLayout(.sizeThatFits)
     }
 }

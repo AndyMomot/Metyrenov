@@ -8,7 +8,8 @@ import SwiftUI
 
 struct NextButton: View {
     var title: String
-    var colors: [Color] = [.azure, .skywave]
+    var titleColors = [Color.white]
+    var bgColors: [Color] = [.skywave, .azure]
     var action: () -> Void
     
     var body: some View {
@@ -17,21 +18,25 @@ struct NextButton: View {
         } label: {
             ZStack {
                 LinearGradient(
-                    colors: colors,
-                    startPoint: .leading,
-                    endPoint: .trailing
+                    colors: bgColors,
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
                 )
-                .clipShape( RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 Text(title)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(LinearGradient(
+                        colors: titleColors,
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    ))
                     .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 15))
                     .multilineTextAlignment(.center)
                     .minimumScaleFactor(0.8)
                     .padding(.horizontal, 8)
                 
             }
-            .frame(height: 54)
+            .frame(height: 44)
             .shadowModifier()
         }
         .buttonStyle(PlainButtonStyle())

@@ -46,42 +46,33 @@ extension DefaultsService {
         }
     }
     
-    var transactions: [TransactionModel] {
+    var projects: [Project] {
         get {
-            if let data = standard.data(forKey: Keys.transactions.rawValue),
-               let items = try? JSONDecoder().decode([TransactionModel].self, from: data) {
+            if let data = standard.data(forKey: Keys.projects.rawValue),
+               let items = try? JSONDecoder().decode([Project].self, from: data) {
                 return items
             }
             return []
         }
         set {
             if let data = try? JSONEncoder().encode(newValue) {
-                standard.set(data, forKey: Keys.transactions.rawValue)
+                standard.set(data, forKey: Keys.projects.rawValue)
             }
         }
     }
     
-    var categories: [TransactionCategory] {
+    var teams: [Team] {
         get {
-            if let data = standard.data(forKey: Keys.categories.rawValue),
-               let items = try? JSONDecoder().decode([TransactionCategory].self, from: data) {
+            if let data = standard.data(forKey: Keys.teams.rawValue),
+               let items = try? JSONDecoder().decode([Team].self, from: data) {
                 return items
             }
             return []
         }
         set {
             if let data = try? JSONEncoder().encode(newValue) {
-                standard.set(data, forKey: Keys.categories.rawValue)
+                standard.set(data, forKey: Keys.teams.rawValue)
             }
-        }
-    }
-    
-    var neededIncomePercentage: Int {
-        get {
-            standard.integer(forKey: Keys.neededIncomePercentage.rawValue)
-        }
-        set {
-            standard.set(newValue, forKey: Keys.neededIncomePercentage.rawValue)
         }
     }
 }
@@ -91,8 +82,7 @@ extension DefaultsService {
     enum Keys: String {
         case flow
         case user
-        case transactions
-        case categories
-        case neededIncomePercentage
+        case projects
+        case teams
     }
 }
