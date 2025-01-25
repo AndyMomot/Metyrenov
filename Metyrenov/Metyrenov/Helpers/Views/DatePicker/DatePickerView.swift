@@ -24,14 +24,13 @@ struct DatePickerView: View {
                            displayedComponents: .date)
                     .labelsHidden()
                     .colorScheme(.dark)
-                    .accentColor(.redCustom)
+                    .accentColor(.azure)
                 
                 Spacer()
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 28)
-            .background(LinearGradientBackground())
-            .cornerRadius(8, corners: .allCorners)
+            .padding(10)
+            .background(.graphite)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
             .shadowModifier()
         }
     }
@@ -39,9 +38,7 @@ struct DatePickerView: View {
 
 #Preview {
     ZStack {
-        LinearGradientBackground()
-            .ignoresSafeArea()
-        
+        Color.graphite
         DatePickerView(title: "Date", selection: .constant(.init()))
             .padding()
     }

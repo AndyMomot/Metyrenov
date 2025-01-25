@@ -36,6 +36,9 @@
 		4760E9802D44FB5B00E31B60 /* TeamMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760E97E2D44FB5B00E31B60 /* TeamMemberCell.swift */; };
 		4760E9842D45039700E31B60 /* AddTeamMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760E9832D45039700E31B60 /* AddTeamMemberView.swift */; };
 		4760E9862D45039C00E31B60 /* AddTeamMemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4760E9852D45039C00E31B60 /* AddTeamMemberViewModel.swift */; };
+		479CAEC02D451D8F008E0A28 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEBD2D451D8F008E0A28 /* CreateProjectView.swift */; };
+		479CAEC12D451D8F008E0A28 /* CreateProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEBE2D451D8F008E0A28 /* CreateProjectViewModel.swift */; };
+		479CAEC32D45275F008E0A28 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEC22D45275F008E0A28 /* ProjectCell.swift */; };
 		47C547842D4130330002AEE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47C547782D4130330002AEE6 /* Assets.xcassets */; };
 		47C547862D4130330002AEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C5477B2D4130330002AEE6 /* LaunchScreen.storyboard */; };
 		47C5480A2D4130D70002AEE6 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C547A42D4130D70002AEE6 /* NextButton.swift */; };
@@ -115,6 +118,9 @@
 		4760E97E2D44FB5B00E31B60 /* TeamMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberCell.swift; sourceTree = "<group>"; };
 		4760E9832D45039700E31B60 /* AddTeamMemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamMemberView.swift; sourceTree = "<group>"; };
 		4760E9852D45039C00E31B60 /* AddTeamMemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamMemberViewModel.swift; sourceTree = "<group>"; };
+		479CAEBD2D451D8F008E0A28 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
+		479CAEBE2D451D8F008E0A28 /* CreateProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectViewModel.swift; sourceTree = "<group>"; };
+		479CAEC22D45275F008E0A28 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		47C5475F2D412F840002AEE6 /* Metyrenov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metyrenov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47C547782D4130330002AEE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47C547792D4130330002AEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				4760E9212D43D16200E31B60 /* Projects */,
+				479CAEBF2D451D8F008E0A28 /* CreateProject */,
 			);
 			path = ProjectFlow;
 			sourceTree = "<group>";
@@ -227,6 +234,7 @@
 			children = (
 				4760E92F2D43D70400E31B60 /* ProjectFilterCheckBox.swift */,
 				4760E92D2D43D6AF00E31B60 /* ProjectFilterView.swift */,
+				479CAEC22D45275F008E0A28 /* ProjectCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,6 +358,15 @@
 				4760E9852D45039C00E31B60 /* AddTeamMemberViewModel.swift */,
 			);
 			path = AddTeamMember;
+			sourceTree = "<group>";
+		};
+		479CAEBF2D451D8F008E0A28 /* CreateProject */ = {
+			isa = PBXGroup;
+			children = (
+				479CAEBD2D451D8F008E0A28 /* CreateProjectView.swift */,
+				479CAEBE2D451D8F008E0A28 /* CreateProjectViewModel.swift */,
+			);
+			path = CreateProject;
 			sourceTree = "<group>";
 		};
 		47C547562D412F840002AEE6 = {
@@ -765,6 +782,7 @@
 				4760E92A2D43D44E00E31B60 /* TeamMember.swift in Sources */,
 				4760E96A2D44E8EB00E31B60 /* CreateTeamView.swift in Sources */,
 				47C5480A2D4130D70002AEE6 /* NextButton.swift in Sources */,
+				479CAEC32D45275F008E0A28 /* ProjectCell.swift in Sources */,
 				47C5480C2D4130D70002AEE6 /* RootContentViewModel.swift in Sources */,
 				4760E9802D44FB5B00E31B60 /* TeamMemberCell.swift in Sources */,
 				47C5480D2D4130D70002AEE6 /* MenuPicker.swift in Sources */,
@@ -778,6 +796,8 @@
 				4760E92C2D43D57B00E31B60 /* Team.swift in Sources */,
 				47C548162D4130D70002AEE6 /* ImagePicker.swift in Sources */,
 				47C548172D4130D70002AEE6 /* ShareSheet.swift in Sources */,
+				479CAEC02D451D8F008E0A28 /* CreateProjectView.swift in Sources */,
+				479CAEC12D451D8F008E0A28 /* CreateProjectViewModel.swift in Sources */,
 				4760E9162D43CDC000E31B60 /* BackgroundView.swift in Sources */,
 				47C5481D2D4130D70002AEE6 /* Date+Additions.swift in Sources */,
 				47C5481F2D4130D70002AEE6 /* CustomTextField.swift in Sources */,

@@ -45,8 +45,7 @@ struct CustomTextField: View {
                 }
                 .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                 .foregroundStyle(.mist)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 28)
+                .padding()
                 .background(.graphite)
                 .cornerRadius(8, corners: .allCorners)
                 .shadowModifier()

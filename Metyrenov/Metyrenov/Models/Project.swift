@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Project: Identifiable, Codable {
+struct Project: Identifiable, Codable, Equatable, Hashable {
     private(set) var id = UUID().uuidString
     var isFinished = false
     
     var name: String
     var date: Date
-    var adress: String
-    var team: Team
+    var address: String
+    var teamID: String
     var description: String
-    var budjet: Int
+    var budget: Int
 }

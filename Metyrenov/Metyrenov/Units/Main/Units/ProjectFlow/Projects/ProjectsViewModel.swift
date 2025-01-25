@@ -15,6 +15,8 @@ extension ProjectsView {
             }
         }
         @Published var projects: [Project] = []
+        
+        @Published var showCreateProject = false
     }
 }
 

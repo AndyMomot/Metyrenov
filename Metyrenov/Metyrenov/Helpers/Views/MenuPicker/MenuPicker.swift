@@ -1,9 +1,5 @@
 //
 //  MenuPicker.swift
-//  Golovytri
-//
-//  Created by Andrii Momot on 25.12.2024.
-//
 
 import SwiftUI
 
@@ -11,7 +7,8 @@ struct MenuPicker: View {
     let title: String
     let items: [String]
     var showAddButton = false
-    @Binding var selection: String
+    var placeholder: String?
+    @Binding var selection: String?
     
     var onAdd: (() -> Void)?
     
@@ -49,28 +46,19 @@ struct MenuPicker: View {
                 }
             } label: {
                 HStack {
-                    if items.isEmpty {
-                        Text("Pusty")
-                            .foregroundStyle(.mist)
-                            .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 16))
-                        
-                        Spacer()
-                        
-                    } else {
-                        Text(selection.isEmpty ? "Wybierać" : selection)
-                            .foregroundStyle(.mist)
-                            .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 16))
-                        
-                        Spacer()
-                        
-                        Image(systemName: "chevron.down")
-                            .foregroundStyle(.mist)
-                    }
+                    Text(selection ?? placeholder ?? "-")
+                        .foregroundStyle(.mist)
+                        .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 16))
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.down")
+                        .foregroundStyle(.mist)
+                        .hidden(items.isEmpty)
                 }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 28)
-                .background(LinearGradientBackground())
-                .cornerRadius(8, corners: .allCorners)
+                .padding()
+                .background(.graphite)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .shadowModifier()
             }
         }
@@ -79,8 +67,7 @@ struct MenuPicker: View {
 
 #Preview {
     ZStack {
-        LinearGradientBackground()
-            .ignoresSafeArea()
+        Color.graphite
         
         VStack {
             MenuPicker(
@@ -94,7 +81,7 @@ struct MenuPicker: View {
                 title: "Title",
                 items: [],
                 showAddButton: true,
-                selection: .constant("")) {
+                selection: .constant(nil)) {
                     
                 }
         }
