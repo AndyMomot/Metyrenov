@@ -18,16 +18,16 @@ struct TabBar: View {
         ZStack(alignment: .bottom) {
             VStack(spacing: .zero) {
                 TabView(selection: $viewModel.selection) {
-                    Text("Home")
+                    HomeView()
                         .tag(TabBarSelectionView.home.rawValue)
                         .environmentObject(viewModel)
                     
-                    Text("Calendar")
+                    ProjectsView()
                         .tag(TabBarSelectionView.calendar.rawValue)
                         .environmentObject(viewModel)
                     
                     if viewModel.showTeamTab {
-                        Text("Team")
+                        TeamsView()
                             .tag(TabBarSelectionView.team.rawValue)
                             .environmentObject(viewModel)
                     }
@@ -43,6 +43,7 @@ struct TabBar: View {
                 if viewModel.showTabBar {
                     TabBarCustomView(items: viewModel.items,
                                      selectedItem: $viewModel.selection)
+                    .background(Color.graphite)
                         .frame(height: UIScreen.main.bounds.height * 0.12)
                 }
             }

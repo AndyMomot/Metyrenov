@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Team: Identifiable, Codable {
+struct Team: Identifiable, Codable, Equatable, Hashable {
     private(set) var id = UUID().uuidString
     var name: String
     var members: [TeamMember] = []

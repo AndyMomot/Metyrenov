@@ -15,17 +15,20 @@ struct BackButton: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        HStack(spacing: 25) {
+        HStack(spacing: 18) {
             if canDismiss {
                 Button {
                     action?()
                     dismiss.callAsFunction()
                 } label: {
                     Image(systemName: "chevron.left")
+                        .padding()
+                        .background(.graphite)
+                        .clipShape(Circle())
+                        .shadowModifier()
                 }
+                .buttonStyle(PlainButtonStyle())
             }
-            
-            Spacer()
             
             Text(title)
                 .lineLimit(2)
@@ -33,14 +36,9 @@ struct BackButton: View {
                 .multilineTextAlignment(.center)
             
             Spacer()
-            
-            if canDismiss {
-                Image(systemName: "chevron.left")
-                    .hidden()
-            }
         }
         .foregroundStyle(.white)
-        .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 20))
+        .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 20))
         .navigationBarBackButtonHidden()
     }
 }

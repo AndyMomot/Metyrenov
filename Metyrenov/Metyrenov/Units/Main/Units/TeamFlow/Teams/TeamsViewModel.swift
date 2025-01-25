@@ -15,6 +15,8 @@ extension TeamsView {
             }
         }
         @Published var teams: [Team] = []
+        @Published var showCreateTeam = false
+        
         private var searchTask: Task<Void, Never>?
     }
 }
