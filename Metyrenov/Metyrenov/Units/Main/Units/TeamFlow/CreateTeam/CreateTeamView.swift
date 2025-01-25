@@ -28,6 +28,7 @@ struct CreateTeamView: View {
                             text: $viewModel.name)
                     }
                 }
+                .scrollIndicators(.never)
                 
                 NextButton(title: "Dodaj nowy zespół") {
                     viewModel.saveTeam {

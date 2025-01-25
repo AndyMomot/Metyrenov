@@ -36,13 +36,20 @@ struct ProjectsView: View {
                             ProjectFilterView(selection: $viewModel.filter)
                             
                             if viewModel.projects.isEmpty {
-                                Text("Nie znaleziono projektów")
-                                    .foregroundStyle(.white)
-                                    .font(.system(size: 16, weight: .semibold))
-                                    .padding()
-                                    .background(.graphite)
-                                    .clipShape(RoundedRectangle(cornerRadius: 4))
-                                    .shadowModifier()
+                                HStack {
+                                    Spacer()
+                                    Text("Nie znaleziono projektów")
+                                        .privacySensitive()
+                                        .foregroundStyle(.white)
+                                        .font(.system(size: 16, weight: .semibold))
+                                    
+                                    Spacer()
+                                }
+                                .padding()
+                                .background(Color.graphite)
+                                .clipShape(RoundedRectangle(cornerRadius: 18))
+                                .shadowModifier()
+                                .padding(.vertical)
                             } else {
                                 LazyVGrid(columns: columns, spacing: 10) {
                                     ForEach(viewModel.projects) { project in

@@ -19,6 +19,16 @@ extension EditTeamView {
 }
 
 extension EditTeamView.ViewModel {
+    func deleteTeam(completion: @escaping () -> Void) {
+        Task { [weak self] in
+            guard let self else { return }
+            DefaultsService.shared.teams.removeAll(where: {$0.id == self.team.id})
+            await MainActor.run {
+                completion()
+            }
+        }
+    }
+    
     func delete(member: TeamMember) {
         Task { [weak self] in
             guard let self else { return }

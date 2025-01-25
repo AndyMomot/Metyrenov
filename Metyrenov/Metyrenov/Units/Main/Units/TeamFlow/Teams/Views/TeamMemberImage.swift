@@ -23,12 +23,12 @@ struct TeamMemberImage: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundStyle(.deepIndigo)
+                    .padding(5)
+                    .background(Color.white)
+                    .clipShape(Circle())
+                    .padding(5)
             }
         }
-        .padding(5)
-        .background(Color.white)
-        .clipShape(Circle())
-        .padding(5)
         .background(Color.graphite)
         .clipShape(Circle())
         .shadowModifier()

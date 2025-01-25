@@ -28,7 +28,21 @@ struct EditTeamView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 15) {
-                BackButton(title: viewModel.team.name)
+                HStack {
+                    BackButton(title: viewModel.team.name)
+                    
+                    Button {
+                        viewModel.deleteTeam {
+                            dismiss.callAsFunction()
+                        }
+                    } label: {
+                        Image(systemName: "trash")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundStyle(.redCustom)
+                            .frame(width: 24, height: 24)
+                    }
+                }
                 
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 10) {
@@ -39,6 +53,7 @@ struct EditTeamView: View {
                         }
                     }
                 }
+                .scrollIndicators(.never)
                 
                 NextButton(title: "Nowy mistrz") {
                     viewModel.showAddMember.toggle()
@@ -47,7 +62,9 @@ struct EditTeamView: View {
             .padding(.horizontal)
         }
         .navigationDestination(isPresented: $viewModel.showAddMember) {
-            Text("addMember")
+            AddTeamMemberView(teamID: viewModel.team.id) {
+                viewModel.updateTeam()
+            }
         }
     }
 }

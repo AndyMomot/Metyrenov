@@ -23,7 +23,7 @@ struct TeamCell: View {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(team.members) { member in
                         TeamMemberImage(imageId: member.id)
-                            .frame(maxWidth: 50, maxHeight: 50)
+                            .frame(maxWidth: 60, maxHeight: 60)
                     }
                 }
                 Spacer()

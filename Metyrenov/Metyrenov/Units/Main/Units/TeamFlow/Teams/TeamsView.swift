@@ -65,6 +65,7 @@ struct TeamsView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .shadowModifier()
                     }
+                    .scrollIndicators(.never)
                 }
                 .padding(.horizontal)
                 
@@ -83,7 +84,7 @@ struct TeamsView: View {
                 CreateTeamView()
             }
             .navigationDestination(for: Team.self) { team in
-                Text(team.name)
+                EditTeamView(team: team)
             }
         }
     }
