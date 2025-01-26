@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DateChartRow: View {
-    let date: Date
+struct ChartRow: View {
+    let text: String
     
     var body: some View {
         HStack(spacing: 10) {
@@ -26,7 +26,7 @@ struct DateChartRow: View {
                         .padding(4)
                 }
             
-            Text(date.toString(format: .ddMMyyyy))
+            Text(text)
                 .foregroundStyle(LinearGradient(
                     colors: [.skywave, .azure],
                     startPoint: .leading,
@@ -40,7 +40,7 @@ struct DateChartRow: View {
 #Preview {
     ZStack {
         Color.graphite
-        DateChartRow(date: .init())
+        ChartRow(text: .init())
             .padding()
     }
 }

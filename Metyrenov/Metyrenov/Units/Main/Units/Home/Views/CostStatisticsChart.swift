@@ -46,7 +46,7 @@ struct ProjectsChart: View {
                 
                 VStack(alignment: .leading, spacing: 15) {
                     ForEach(projects) { project in
-                        DateChartRow(date: project.date)
+                        ChartRow(text: project.date.toString(format: .ddMMyyyy))
                     }
                 }
             }

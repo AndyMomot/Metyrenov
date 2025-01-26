@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,7 +43,13 @@
 		479CAECF2D462C47008E0A28 /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAECC2D462C47008E0A28 /* ProjectDetailsViewModel.swift */; };
 		479CAED52D463820008E0A28 /* ProjectInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAED32D463820008E0A28 /* ProjectInfoPresenter.swift */; };
 		479CAED92D4645B4008E0A28 /* CostStatisticsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAED82D4645B4008E0A28 /* CostStatisticsChart.swift */; };
-		479CAEDB2D4647AE008E0A28 /* DateChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEDA2D4647AE008E0A28 /* DateChartRow.swift */; };
+		479CAEDB2D4647AE008E0A28 /* ChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEDA2D4647AE008E0A28 /* ChartRow.swift */; };
+		479CAEE42D4651E7008E0A28 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEE12D4651E7008E0A28 /* FAQView.swift */; };
+		479CAEE52D4651E7008E0A28 /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEE22D4651E7008E0A28 /* FAQViewModel.swift */; };
+		479CAEE72D4654D4008E0A28 /* FAQCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEE62D4654D4008E0A28 /* FAQCell.swift */; };
+		479CAEF02D46568A008E0A28 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEED2D46568A008E0A28 /* ProfileView.swift */; };
+		479CAEF12D46568A008E0A28 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEEE2D46568A008E0A28 /* ProfileViewModel.swift */; };
+		479CAEF42D465BAB008E0A28 /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEF22D465BAB008E0A28 /* ProfileButton.swift */; };
 		47C547842D4130330002AEE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47C547782D4130330002AEE6 /* Assets.xcassets */; };
 		47C547862D4130330002AEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C5477B2D4130330002AEE6 /* LaunchScreen.storyboard */; };
 		47C5480A2D4130D70002AEE6 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C547A42D4130D70002AEE6 /* NextButton.swift */; };
@@ -130,7 +136,13 @@
 		479CAECC2D462C47008E0A28 /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
 		479CAED32D463820008E0A28 /* ProjectInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoPresenter.swift; sourceTree = "<group>"; };
 		479CAED82D4645B4008E0A28 /* CostStatisticsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostStatisticsChart.swift; sourceTree = "<group>"; };
-		479CAEDA2D4647AE008E0A28 /* DateChartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateChartRow.swift; sourceTree = "<group>"; };
+		479CAEDA2D4647AE008E0A28 /* ChartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRow.swift; sourceTree = "<group>"; };
+		479CAEE12D4651E7008E0A28 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		479CAEE22D4651E7008E0A28 /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
+		479CAEE62D4654D4008E0A28 /* FAQCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCell.swift; sourceTree = "<group>"; };
+		479CAEED2D46568A008E0A28 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		479CAEEE2D46568A008E0A28 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		479CAEF22D465BAB008E0A28 /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
 		47C5475F2D412F840002AEE6 /* Metyrenov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metyrenov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47C547782D4130330002AEE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47C547792D4130330002AEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +221,8 @@
 				4760E90B2D43CA0100E31B60 /* Home */,
 				4760E9222D43D16200E31B60 /* ProjectFlow */,
 				4760E9342D43DF4500E31B60 /* TeamFlow */,
+				479CAEE32D4651E7008E0A28 /* FAQ */,
+				479CAEEF2D46568A008E0A28 /* Profile */,
 			);
 			path = Units;
 			sourceTree = "<group>";
@@ -403,7 +417,35 @@
 			isa = PBXGroup;
 			children = (
 				479CAED82D4645B4008E0A28 /* CostStatisticsChart.swift */,
-				479CAEDA2D4647AE008E0A28 /* DateChartRow.swift */,
+				479CAEDA2D4647AE008E0A28 /* ChartRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		479CAEE32D4651E7008E0A28 /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				479CAEE62D4654D4008E0A28 /* FAQCell.swift */,
+				479CAEE12D4651E7008E0A28 /* FAQView.swift */,
+				479CAEE22D4651E7008E0A28 /* FAQViewModel.swift */,
+			);
+			path = FAQ;
+			sourceTree = "<group>";
+		};
+		479CAEEF2D46568A008E0A28 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				479CAEF32D465BAB008E0A28 /* Views */,
+				479CAEED2D46568A008E0A28 /* ProfileView.swift */,
+				479CAEEE2D46568A008E0A28 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		479CAEF32D465BAB008E0A28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				479CAEF22D465BAB008E0A28 /* ProfileButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -748,6 +790,7 @@
 				};
 			};
 			buildConfigurationList = 47C5475A2D412F840002AEE6 /* Build configuration list for PBXProject "Metyrenov" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -756,7 +799,6 @@
 			);
 			mainGroup = 47C547562D412F840002AEE6;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 47C547602D412F840002AEE6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -832,8 +874,10 @@
 				4760E9662D43E34600E31B60 /* SearchView.swift in Sources */,
 				4760E9702D44F03600E31B60 /* TeamMemberImage.swift in Sources */,
 				47C548122D4130D70002AEE6 /* RootContentView.swift in Sources */,
-				479CAEDB2D4647AE008E0A28 /* DateChartRow.swift in Sources */,
+				479CAEDB2D4647AE008E0A28 /* ChartRow.swift in Sources */,
 				4760E92C2D43D57B00E31B60 /* Team.swift in Sources */,
+				479CAEE42D4651E7008E0A28 /* FAQView.swift in Sources */,
+				479CAEE52D4651E7008E0A28 /* FAQViewModel.swift in Sources */,
 				47C548162D4130D70002AEE6 /* ImagePicker.swift in Sources */,
 				47C548172D4130D70002AEE6 /* ShareSheet.swift in Sources */,
 				479CAED52D463820008E0A28 /* ProjectInfoPresenter.swift in Sources */,
@@ -841,6 +885,8 @@
 				479CAEC12D451D8F008E0A28 /* CreateProjectViewModel.swift in Sources */,
 				4760E9162D43CDC000E31B60 /* BackgroundView.swift in Sources */,
 				47C5481D2D4130D70002AEE6 /* Date+Additions.swift in Sources */,
+				479CAEF02D46568A008E0A28 /* ProfileView.swift in Sources */,
+				479CAEF12D46568A008E0A28 /* ProfileViewModel.swift in Sources */,
 				47C5481F2D4130D70002AEE6 /* CustomTextField.swift in Sources */,
 				47C548212D4130D70002AEE6 /* Double+Additions.swift in Sources */,
 				479CAECE2D462C47008E0A28 /* ProjectDetailsView.swift in Sources */,
@@ -880,11 +926,13 @@
 				479CAED92D4645B4008E0A28 /* CostStatisticsChart.swift in Sources */,
 				4760E9232D43D16200E31B60 /* ProjectsView.swift in Sources */,
 				4760E96C2D44E8F000E31B60 /* CreateTeamViewModel.swift in Sources */,
+				479CAEE72D4654D4008E0A28 /* FAQCell.swift in Sources */,
 				4760E9272D43D2B600E31B60 /* Project.swift in Sources */,
 				4760E9242D43D16200E31B60 /* ProjectsViewModel.swift in Sources */,
 				47C5484C2D4130D70002AEE6 /* SceneDelegate.swift in Sources */,
 				47C5484F2D4130D70002AEE6 /* CustomProgressView.swift in Sources */,
 				4760E9792D44F67B00E31B60 /* EditTeamView.swift in Sources */,
+				479CAEF42D465BAB008E0A28 /* ProfileButton.swift in Sources */,
 				4760E9862D45039C00E31B60 /* AddTeamMemberViewModel.swift in Sources */,
 				4760E97A2D44F67B00E31B60 /* EditTeamViewModel.swift in Sources */,
 			);

@@ -32,10 +32,10 @@ struct TabBar: View {
                             .environmentObject(viewModel)
                     }
                     
-                    Text("FAQ")
+                    FAQView()
                         .tag(TabBarSelectionView.faq)
                     
-                    Text("Settings")
+                    ProfileView()
                         .tag(TabBarSelectionView.settings)
                         .environmentObject(viewModel)
                 }

@@ -10,6 +10,7 @@ import UIKit
 
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage
+    var onDismiss: (() -> Void)?
     @Environment(\.presentationMode) var presentationMode
 
     func makeCoordinator() -> Coordinator {
@@ -36,6 +37,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             if let selectedImage = info[.originalImage] as? UIImage {
                 parent.selectedImage = selectedImage
             }
+            parent.onDismiss?()
             parent.presentationMode.wrappedValue.dismiss()
         }
 
