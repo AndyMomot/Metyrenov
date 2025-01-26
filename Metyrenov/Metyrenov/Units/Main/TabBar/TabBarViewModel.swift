@@ -10,15 +10,19 @@ import SwiftUI
 
 extension TabBar {
     final class ViewModel: ObservableObject {
-        @Published var selection = TabBarSelectionView.home.rawValue
+        @Published var selection = TabBarSelectionView.home
         @Published var showTabBar = true
         @Published var showTeamTab = false
         
         @Published var items: [TabBar.Item] = [
-            .init(imageName: Asset.homeTab.name),
-            .init(imageName: Asset.calendarTab.name),
-            .init(imageName: Asset.faqTab.name),
-            .init(imageName: Asset.settingsTab.name)
+            .init(imageName: Asset.homeTab.name,
+                  tab: .home),
+            .init(imageName: Asset.calendarTab.name,
+                  tab: .calendar),
+            .init(imageName: Asset.faqTab.name,
+                  tab: .faq),
+            .init(imageName: Asset.settingsTab.name,
+                  tab: .settings)
         ]
         
         init() {
@@ -43,9 +47,10 @@ private extension TabBar.ViewModel {
             await MainActor.run {
                 self.showTeamTab = isCompanyType
                 if isCompanyType {
-                    self.items.insert(.init(imageName: Asset.profileTab.name), at: 2)
+                    self.items.insert(.init(imageName: Asset.profileTab.name,
+                                            tab: .team), at: 2)
                 } else {
-                    self.items.removeAll(where: {$0.imageName == Asset.profileTab.name})
+                    self.items.removeAll(where: {$0.tab == .team})
                 }
             }
         }
@@ -53,8 +58,8 @@ private extension TabBar.ViewModel {
 }
 
 extension TabBar {
-    enum TabBarSelectionView: Int {
-        case home = 0
+    enum TabBarSelectionView {
+        case home
         case calendar
         case team
         case faq
@@ -63,6 +68,7 @@ extension TabBar {
     
     struct Item: Identifiable {
         private(set) var id = UUID()
-        var imageName: String
+        let imageName: String
+        let tab: TabBarSelectionView
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBarCustomView: View {
     
     let items: [TabBar.Item]
-    @Binding var selectedItem: Int
+    @Binding var selectedItem: TabBar.TabBarSelectionView
     
     private var arrange: [Int] {
         Array(0..<items.count)
@@ -29,14 +29,13 @@ struct TabBarCustomView: View {
             
             HStack(spacing: 0) {
                 Spacer()
-                ForEach(0..<items.count, id: \.self) { index in
-                    let item = items[index]
-                    let isSelected = selectedItem == index
+                ForEach(items) { item in
+                    let isSelected = selectedItem == item.tab
                     
                     Button {
                         DispatchQueue.main.async {
                             withAnimation {
-                                selectedItem = index
+                                selectedItem = item.tab
                             }
                         }
                     } label: {
@@ -71,12 +70,17 @@ struct TabBarCustomView: View {
 struct TabBarCustomView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarCustomView(items: [
-            .init(imageName: Asset.homeTab.name),
-            .init(imageName: Asset.calendarTab.name),
-            .init(imageName: Asset.profileTab.name),
-            .init(imageName: Asset.faqTab.name),
-            .init(imageName: Asset.settingsTab.name)
-        ], selectedItem: .constant(0))
+            .init(imageName: Asset.homeTab.name,
+                  tab: .home),
+            .init(imageName: Asset.calendarTab.name,
+                  tab: .calendar),
+            .init(imageName: Asset.profileTab.name,
+                  tab: .team),
+            .init(imageName: Asset.faqTab.name,
+                  tab: .faq),
+            .init(imageName: Asset.settingsTab.name,
+                  tab: .settings)
+        ], selectedItem: .constant(.home))
             .previewLayout(.sizeThatFits)
     }
 }

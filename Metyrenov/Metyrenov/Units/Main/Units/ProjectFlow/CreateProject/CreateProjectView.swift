@@ -37,18 +37,20 @@ struct CreateProjectView: View {
                             placeholder: "Wprowadź adres...",
                             text: $viewModel.address)
                         
-                        MenuPicker(
-                            title: "Zespół",
-                            items: viewModel.teams.map { $0.name },
-                            showAddButton: true,
-                            placeholder: "Wybierz zespół",
-                            selection: $viewModel.selectedTeam) {
-                                DispatchQueue.main.async {
-                                    withAnimation {
-                                        tabBarViewModel.selection = TabBar.TabBarSelectionView.team.rawValue
+                        if viewModel.showTeams {
+                            MenuPicker(
+                                title: "Zespół",
+                                items: viewModel.teams.map { $0.name },
+                                showAddButton: true,
+                                placeholder: "Wybierz zespół",
+                                selection: $viewModel.selectedTeam) {
+                                    DispatchQueue.main.async {
+                                        withAnimation {
+                                            tabBarViewModel.selection = TabBar.TabBarSelectionView.team
+                                        }
                                     }
                                 }
-                            }
+                        }
                         
                         CustomTextField(
                             title: "Opis projektu",

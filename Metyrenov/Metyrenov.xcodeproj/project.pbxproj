@@ -42,6 +42,8 @@
 		479CAECE2D462C47008E0A28 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAECB2D462C47008E0A28 /* ProjectDetailsView.swift */; };
 		479CAECF2D462C47008E0A28 /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAECC2D462C47008E0A28 /* ProjectDetailsViewModel.swift */; };
 		479CAED52D463820008E0A28 /* ProjectInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAED32D463820008E0A28 /* ProjectInfoPresenter.swift */; };
+		479CAED92D4645B4008E0A28 /* CostStatisticsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAED82D4645B4008E0A28 /* CostStatisticsChart.swift */; };
+		479CAEDB2D4647AE008E0A28 /* DateChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479CAEDA2D4647AE008E0A28 /* DateChartRow.swift */; };
 		47C547842D4130330002AEE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47C547782D4130330002AEE6 /* Assets.xcassets */; };
 		47C547862D4130330002AEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C5477B2D4130330002AEE6 /* LaunchScreen.storyboard */; };
 		47C5480A2D4130D70002AEE6 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C547A42D4130D70002AEE6 /* NextButton.swift */; };
@@ -127,6 +129,8 @@
 		479CAECB2D462C47008E0A28 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
 		479CAECC2D462C47008E0A28 /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
 		479CAED32D463820008E0A28 /* ProjectInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoPresenter.swift; sourceTree = "<group>"; };
+		479CAED82D4645B4008E0A28 /* CostStatisticsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostStatisticsChart.swift; sourceTree = "<group>"; };
+		479CAEDA2D4647AE008E0A28 /* DateChartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateChartRow.swift; sourceTree = "<group>"; };
 		47C5475F2D412F840002AEE6 /* Metyrenov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metyrenov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47C547782D4130330002AEE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47C547792D4130330002AEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 		4760E90B2D43CA0100E31B60 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				479CAED72D464585008E0A28 /* Views */,
 				4760E90D2D43CA0C00E31B60 /* HomeView.swift */,
 				4760E90F2D43CA1300E31B60 /* HomeViewModel.swift */,
 			);
@@ -390,6 +395,15 @@
 			isa = PBXGroup;
 			children = (
 				479CAED32D463820008E0A28 /* ProjectInfoPresenter.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		479CAED72D464585008E0A28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				479CAED82D4645B4008E0A28 /* CostStatisticsChart.swift */,
+				479CAEDA2D4647AE008E0A28 /* DateChartRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -818,6 +832,7 @@
 				4760E9662D43E34600E31B60 /* SearchView.swift in Sources */,
 				4760E9702D44F03600E31B60 /* TeamMemberImage.swift in Sources */,
 				47C548122D4130D70002AEE6 /* RootContentView.swift in Sources */,
+				479CAEDB2D4647AE008E0A28 /* DateChartRow.swift in Sources */,
 				4760E92C2D43D57B00E31B60 /* Team.swift in Sources */,
 				47C548162D4130D70002AEE6 /* ImagePicker.swift in Sources */,
 				47C548172D4130D70002AEE6 /* ShareSheet.swift in Sources */,
@@ -862,6 +877,7 @@
 				47C548472D4130D70002AEE6 /* TabBar.swift in Sources */,
 				47C548482D4130D70002AEE6 /* RootViewController.swift in Sources */,
 				47C548492D4130D70002AEE6 /* AppDelegate.swift in Sources */,
+				479CAED92D4645B4008E0A28 /* CostStatisticsChart.swift in Sources */,
 				4760E9232D43D16200E31B60 /* ProjectsView.swift in Sources */,
 				4760E96C2D44E8F000E31B60 /* CreateTeamViewModel.swift in Sources */,
 				4760E9272D43D2B600E31B60 /* Project.swift in Sources */,

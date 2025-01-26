@@ -19,32 +19,34 @@ struct TabBar: View {
             VStack(spacing: .zero) {
                 TabView(selection: $viewModel.selection) {
                     HomeView()
-                        .tag(TabBarSelectionView.home.rawValue)
+                        .tag(TabBarSelectionView.home)
                         .environmentObject(viewModel)
                     
                     ProjectsView()
-                        .tag(TabBarSelectionView.calendar.rawValue)
+                        .tag(TabBarSelectionView.calendar)
                         .environmentObject(viewModel)
                     
                     if viewModel.showTeamTab {
                         TeamsView()
-                            .tag(TabBarSelectionView.team.rawValue)
+                            .tag(TabBarSelectionView.team)
                             .environmentObject(viewModel)
                     }
                     
                     Text("FAQ")
-                        .tag(TabBarSelectionView.faq.rawValue)
+                        .tag(TabBarSelectionView.faq)
                     
                     Text("Settings")
-                        .tag(TabBarSelectionView.settings.rawValue)
+                        .tag(TabBarSelectionView.settings)
                         .environmentObject(viewModel)
                 }
                 
                 if viewModel.showTabBar {
-                    TabBarCustomView(items: viewModel.items,
-                                     selectedItem: $viewModel.selection)
+                    TabBarCustomView(
+                        items: viewModel.items,
+                        selectedItem: $viewModel.selection
+                    )
                     .background(Color.graphite)
-                        .frame(height: UIScreen.main.bounds.height * 0.12)
+                    .frame(height: UIScreen.main.bounds.height * 0.12)
                 }
             }
             .ignoresSafeArea(edges: .bottom)

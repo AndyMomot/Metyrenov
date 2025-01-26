@@ -77,8 +77,7 @@ extension CreateProjectView.ViewModel {
     func saveProject(completion: @escaping () -> Void) {
         Task { [weak self] in
             guard let self else { return }
-            guard let teamID = self.teams.first(where: { $0.name == self.selectedTeam })?.id
-            else { return }
+            let teamID = self.teams.first(where: { $0.name == self.selectedTeam })?.id
             
             let project = Project(
                 name: self.name,

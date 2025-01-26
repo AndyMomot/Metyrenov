@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var viewModel = ViewModel()
+    @EnvironmentObject private var tabBarViewModel: TabBar.ViewModel
     
     var body: some View {
         ZStack {
@@ -20,8 +21,55 @@ struct HomeView: View {
                     .padding(.trailing)
                 
                 ScrollView {
-                    VStack(spacing: 15) {
+                    VStack(alignment: .leading, spacing: 15) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Aktualne projekty")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 16, weight: .semibold))
+                            
+                            ScrollView(.horizontal) {
+                                HStack(spacing: 15) {
+                                    ForEach(viewModel.projects) { project in
+                                        ProjectCell(project: project)
+                                    }
+                                }
+                            }
+                            .scrollIndicators(.never)
+                        }
+                        .padding(.vertical)
+                        .padding(.leading)
+                        .background(.graphite)
+                        .cornerRadius(10, corners: [
+                            .topLeft, .bottomLeft
+                        ])
+                        .shadowModifier()
                         
+                        switch viewModel.userType {
+                        case .company:
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("Twoje zespoły")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 16, weight: .semibold))
+                                
+                                ScrollView(.horizontal) {
+                                    HStack(spacing: 15) {
+                                        ForEach(viewModel.teams) { team in
+                                            TeamCell(team: team)
+                                        }
+                                    }
+                                }
+                                .scrollIndicators(.never)
+                            }
+                            .padding(.vertical)
+                            .padding(.leading)
+                            .background(.graphite)
+                            .cornerRadius(10, corners: [
+                                .topLeft, .bottomLeft
+                            ])
+                            .shadowModifier()
+                        case .personal:
+                            ProjectsChart(projects: viewModel.projects)
+                        }
                     }
                 }
                 .scrollIndicators(.never)
@@ -34,19 +82,31 @@ struct HomeView: View {
                 switch viewModel.userType {
                 case .company:
                     HStack(spacing: 10) {
-                        NextButton(title: "Dodaj nowy projekt") {
-                            
+                        if viewModel.projects.isEmpty {
+                            NextButton(title: "Dodaj nowy projekt") {
+                                DispatchQueue.main.async {
+                                    tabBarViewModel.selection = TabBar.TabBarSelectionView.calendar
+                                }
+                            }
                         }
                         
-                        NextButton(title: "Wyświetl polecenia",
-                                   titleColors: [.azure, .skywave],
-                                   bgColors: [.graphite]) {
-                            
+                        if viewModel.teams.isEmpty {
+                            NextButton(title: "Wyświetl polecenia",
+                                       titleColors: [.azure, .skywave],
+                                       bgColors: [.graphite]) {
+                                DispatchQueue.main.async {
+                                    tabBarViewModel.selection = TabBar.TabBarSelectionView.team
+                                }
+                            }
                         }
                     }
                 case .personal:
-                    NextButton(title: "Dodaj nowy projekt") {
-                        
+                    if viewModel.projects.isEmpty {
+                        NextButton(title: "Dodaj nowy projekt") {
+                            DispatchQueue.main.async {
+                                tabBarViewModel.selection = TabBar.TabBarSelectionView.calendar
+                            }
+                        }
                     }
                 }
             }
@@ -54,6 +114,7 @@ struct HomeView: View {
         }
         .onAppear {
             viewModel.getUser()
+            viewModel.getProjects()
         }
     }
 }
