@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomTextField: View {
-    var title: String
+    var title: String = ""
     var placeholder: String = ""
     var isDynamic = false
     @Binding var text: String
@@ -23,10 +23,11 @@ struct CustomTextField: View {
                 ZStack(alignment: .topLeading) {
                     TextEditor(text: $text)
                         .scrollContentBackground(.hidden)
+                        .scrollIndicators(.never)
                         .foregroundStyle(.mist)
                         .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 16))
                         .padding(.horizontal, 12)
-                        .padding(.vertical, 28)
+                        .padding(.vertical, 10)
                     
                     
                     if text.isEmpty {
@@ -37,6 +38,7 @@ struct CustomTextField: View {
                 .background(.graphite)
                 .cornerRadius(8, corners: .allCorners)
                 .shadowModifier()
+                .frame(minHeight: 60)
                 
             } else {
                 TextField(text: $text) {
@@ -80,7 +82,7 @@ private extension CustomTextField {
                 CustomTextField(title: "Title",
                                 placeholder: "placeholder",
                                 isDynamic: true,
-                                text: .constant("some text"))
+                                text: .constant("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."))
             }
             .padding()
         }

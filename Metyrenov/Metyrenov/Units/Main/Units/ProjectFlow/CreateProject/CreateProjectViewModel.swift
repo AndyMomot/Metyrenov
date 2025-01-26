@@ -18,6 +18,7 @@ extension CreateProjectView {
             didSet { validate() }
         }
         
+        @Published var showTeams = false
         @Published var teams: [Team] = []
         @Published var selectedTeam: String?  {
             didSet { validate() }
@@ -35,46 +36,67 @@ extension CreateProjectView {
         
         @Published var showImagePicker = false
         @Published var isValid = false
-        
-        func getTeams() {
-            Task { [weak self] in
-                guard let self else { return }
-                let allTeams = DefaultsService.shared.teams
-                await MainActor.run {
-                    self.teams = allTeams
-                }
+    }
+}
+
+extension CreateProjectView.ViewModel {
+    func getUser() {
+        Task { [weak self] in
+            guard let self else { return}
+            let user = DefaultsService.shared.user
+            let isCompanyType = user?.type == .company
+            
+            if isCompanyType {
+                self.getTeams()
+            }
+            
+            await MainActor.run {
+                self.showTeams = isCompanyType
             }
         }
-        
-        func validate() {
-            isValid = !name.isEmpty
-            && !address.isEmpty
-            && selectedTeam != nil
-            && !description.isEmpty
-            && Int(budget) ?? .zero > .zero
-            && image != UIImage()
+    }
+    
+    func getTeams() {
+        Task { [weak self] in
+            guard let self else { return }
+            let allTeams = DefaultsService.shared.teams
+            await MainActor.run {
+                self.teams = allTeams
+            }
         }
-        
-        func saveProject(completion: @escaping () -> Void) {
-            Task { [weak self] in
-                guard let self else { return }
-                guard let teamID = self.teams.first(where: { $0.name == self.selectedTeam })?.id
-                else { return }
-                
-                let project = Project(
-                    name: self.name,
-                    date: self.date,
-                    address: self.address,
-                    teamID: teamID,
-                    description: self.description,
-                    budget: Int(self.budget) ?? .zero
-                )
-                
-                DefaultsService.shared.projects.append(project)
-                
-                await MainActor.run {
-                    completion()
-                }
+    }
+    
+    func validate() {
+        isValid = !name.isEmpty
+        && !address.isEmpty
+        && !description.isEmpty
+        && Int(budget) ?? .zero > .zero
+        && image != UIImage()
+    }
+    
+    func saveProject(completion: @escaping () -> Void) {
+        Task { [weak self] in
+            guard let self else { return }
+            guard let teamID = self.teams.first(where: { $0.name == self.selectedTeam })?.id
+            else { return }
+            
+            let project = Project(
+                name: self.name,
+                date: self.date,
+                address: self.address,
+                teamID: teamID,
+                description: self.description,
+                budget: Int(self.budget) ?? .zero
+            )
+            
+            DefaultsService.shared.projects.append(project)
+            
+            if let imageData = self.image.jpegData(compressionQuality: 1) {
+                FileManagerService().saveImage(data: imageData, for: project.id)
+            }
+            
+            await MainActor.run {
+                completion()
             }
         }
     }

@@ -89,7 +89,7 @@ struct ProjectsView: View {
                 CreateProjectView()
             }
             .navigationDestination(for: Project.self) { project in
-                Text(project.name)
+                ProjectDetailsView(project: project)
             }
         }
     }

@@ -14,7 +14,7 @@ struct Project: Identifiable, Codable, Equatable, Hashable {
     var name: String
     var date: Date
     var address: String
-    var teamID: String
+    var teamID: String?
     var description: String
     var budget: Int
 }

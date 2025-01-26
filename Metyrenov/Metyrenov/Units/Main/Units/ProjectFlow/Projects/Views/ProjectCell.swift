@@ -23,6 +23,7 @@ struct ProjectCell: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(maxWidth: 95, maxHeight: 95)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
                                 .padding(6)
                                 .background(.graphite)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))

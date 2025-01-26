@@ -107,7 +107,7 @@ struct CreateProjectView: View {
         }
         .hideKeyboardWhenTappedAround()
         .onAppear {
-            viewModel.getTeams()
+            viewModel.getUser()
         }
         .sheet(isPresented: $viewModel.showImagePicker) {
             ImagePicker(selectedImage: $viewModel.image)
